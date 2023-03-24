@@ -61,17 +61,13 @@ const App = () => {
             </Button>
           </Toolbar>
         </AppBar>
-        <Grid container className={classes.container}>
-          <Grid items xs={12}>
+        <Grid container>
+          <Grid item xs={12}>
             <Router>
               <Routes>
-                <Route exact path="posts" component={PostsList} />
-                <Route exact path="posts" component={PostsList} />
-                <Route exact path="posts" component={PostsList} />
-                <Route exact path="posts" component={PostsList} />
+                <Route exact path="/posts" element={<PostsList />} />
               </Routes>
-
-              <Navigate from="/" to="posts" />
+              <Navigate from="/" to="/posts" />
             </Router>
           </Grid>
         </Grid>
