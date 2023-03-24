@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "tss-react/mui";
 import {
   BrowserRouter as Router,
@@ -18,6 +18,7 @@ import {
   IconButton,
 } from "@mui/material";
 import PostsList from "./components/PostsList";
+import AddPostForm from "./components/AddPostForm";
 const useStyles = makeStyles()((theme) => {
   return {
     root: {
@@ -36,6 +37,15 @@ const useStyles = makeStyles()((theme) => {
 });
 
 const App = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const { classes } = useStyles();
   return (
     <>
@@ -72,6 +82,8 @@ const App = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <AddPostForm open={open} handleClose={handleClose} />
     </>
   );
 };
