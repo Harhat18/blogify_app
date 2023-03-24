@@ -1,5 +1,11 @@
 import React from "react";
 import { makeStyles } from "tss-react/mui";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import {
   CssBaseline,
@@ -11,6 +17,7 @@ import {
   Button,
   IconButton,
 } from "@mui/material";
+import PostsList from "./components/PostsList";
 const useStyles = makeStyles()((theme) => {
   return {
     root: {
@@ -54,6 +61,20 @@ const App = () => {
             </Button>
           </Toolbar>
         </AppBar>
+        <Grid container className={classes.container}>
+          <Grid items xs={12}>
+            <Router>
+              <Routes>
+                <Route exact path="posts" component={PostsList} />
+                <Route exact path="posts" component={PostsList} />
+                <Route exact path="posts" component={PostsList} />
+                <Route exact path="posts" component={PostsList} />
+              </Routes>
+
+              <Navigate from="/" to="posts" />
+            </Router>
+          </Grid>
+        </Grid>
       </Container>
     </>
   );
